@@ -1,0 +1,50 @@
+<IfModule mod_headers.c>
+	# Cache for 30 days
+	<filesMatch "\.(ico|flv|(jpe?|pn|sv)g|(wof|gi|pd|sw|tt)f|(j|(le|c)s)s|eot|docx?|pptx?|xslx?|(ht|x(ht)?)ml|mp4|webm)$">
+		Header set Cache-Control "max-age=2592000, public"
+		Header append Vary: Accept-Encoding
+	</filesMatch>
+</IfModule>
+
+# Use Mod_deflate to compress static files
+<IfModule mod_deflate.c>
+	SetOutputFilter DEFLATE
+	
+	#The following line is enough for .js and .css
+	AddOutputFilter DEFLATE js css
+
+	#The following line also enables compression by file content type, for the following list of Content-Type-s
+	<IfModule mod_filter.c>
+		AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml
+	</IfModule>
+	
+	#The following lines are to avoid bugs with some browsers
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	BrowserMatch \bMSIE !no-gzip !gzip-only-text/html 
+</IfModule>
+
+# Speed up caching
+FileETag MTime Size
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # This will stop processing if it's images, or alike
+    RewriteRule \.(ico|flv|(jpe?|pn|sv)g|(wof|gi|pd|sw|tt)f|(j|(le|c)s)s|eot|docx?|pptx?|xslx?|(ht|x(ht)?)ml|mp4|webm)$ - [L,NC]
+
+    # Redirect everything to apache
+    # If the requested filename isn’t a file….
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # and it isn’t a folder…
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    RewriteRule ^(.*)$ index.php?$1 [L,QSA] 
+    # L = (last - stop processing rules)
+    # QSA = (append query string from requeste to substring URL)
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+DirectoryIndex index.php
