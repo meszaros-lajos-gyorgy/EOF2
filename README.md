@@ -24,8 +24,10 @@ Headers, Deflate, Filter and Rewrite Apache modules
 
 ### Referencies:
 
-*Sites, that are built upon, or with the help of EOF1*
-http://godolloitangazdasag.hu/
+**Sites, that are built upon, or with the help of EOF1**
 
-*Sites, that are built upon, or with the help of EOF2*
-https://fax.voip123.hu/
+* [godolloitangazdasag.hu](http://godolloitangazdasag.hu/)
+
+**Sites, that are built upon, or with the help of EOF2**
+
+* [fax.voip123.hu](https://fax.voip123.hu/)
