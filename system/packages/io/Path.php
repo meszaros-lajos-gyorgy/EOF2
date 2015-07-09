@@ -2,26 +2,26 @@
 
 class Path{
 	const
-		URL			= 'url',		// http://www.alma.hu/rackserver/sajt/dinnye/?mennyire=nagyon | $_SERVER
-		SERVER		= 'server',		// C:\wamp\www\rackserver\valami\index.php | realpath('.')
+		URL			= 'url',		// http://www.cat.com/foo/bar/baz/?size=big | $_SERVER
+		SERVER		= 'server',		// C:\wamp\www\foo\index.php | realpath('.')
 		
 		PROTOCOL	= 'protocol',	// http
-		HOST		= 'host',		// www.alma.hu
+		HOST		= 'host',		// www.cat.com
 		ADDRESS		= 'address',	// 127.0.0.1
 		PORT		= 'port',		// 80
-		BASE		= 'base',		// /rackserver/		| rackserver\
-		PATH		= 'path',		// sajt/dinnye/
-		GET			= 'get',		// ?mennyire=nagyon
+		BASE		= 'base',		// /foo/			| foo\
+		PATH		= 'path',		// bar/baz/
+		GET			= 'get',		// ?size=big
 		
 		ROOT		= 'root',		//					| C:\wamp\www\
 		
-		ELEMENTS	= 'elements'	// PATH szétszedve tömbbe
+		ELEMENTS	= 'elements'	// PATH sliced into an array
 	;
 	
 	private
 		$elements,
 		$datas,
-		$DS
+		$DS // directory separator
 	;
 	
 	public function __construct(){

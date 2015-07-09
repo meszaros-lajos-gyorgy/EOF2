@@ -1,28 +1,33 @@
 <?php
 
+/**
+ * Another level of wrapping for Strings, which allows all type of set operations to be made with other Strings.
+ * 
+ * @package util
+ */
 class StringSet extends String{
 	const
-		NONE					= 0,	// ( ( ) )
-		RELATIVE_COMPLEMENT_A	= 1,	// ( ( )x)
-		INTERSECT				= 2,	// ( (x) )
-		B						= 3,	// ( (x)x)
-		RELATIVE_COMPLEMENT_B	= 4,	// (x( ) )
-		SYMMETRIC_DIFFERENCE	= 5,	// (x( )x)
-		A						= 6,	// (x(x) )
-		UNION					= 7		// (x(x)x)
+		NONE                  = 0, // ( ( ) )
+		RELATIVE_COMPLEMENT_A = 1, // ( ( )x)
+		INTERSECT             = 2, // ( (x) )
+		B                     = 3, // ( (x)x)
+		RELATIVE_COMPLEMENT_B = 4, // (x( ) )
+		SYMMETRIC_DIFFERENCE  = 5, // (x( )x)
+		A                     = 6, // (x(x) )
+		UNION                 = 7  // (x(x)x)
 	;
 	
 	private
-		$cache					= Array()
+		$cache                = Array()
 	;
 	
 	public function __construct($a){
 		if(String::isSameObject($a, true)){
-			$value		= $a->get();
-			$encoding	= $a->getEncoding();
+			$value    = $a->get();
+			$encoding = $a->getEncoding();
 		}else{
-			$value		= $a;
-			$encoding	= String::getBaseEncoding();
+			$value    = $a;
+			$encoding = String::getBaseEncoding();
 		}
 		parent::__construct($value, $encoding);
 	}

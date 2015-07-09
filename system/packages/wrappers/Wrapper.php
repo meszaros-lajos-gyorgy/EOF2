@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Abstract ancient of all type wrapper objects. A wrapper object wraps a single variable into an object
+ * 
+ * @package wrappers
+ */
 abstract class Wrapper extends Object{
 	private $value;
 	
+	/**
+	 * @constructor
+	 * 
+	 */
 	public function __construct($value){
 		parent::__construct();
 		$this->set($value);

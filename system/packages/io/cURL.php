@@ -1,6 +1,8 @@
 <?php
 
 /*
+example usage:
+
 $curl	= new cURL();
 $result = $curl
 	->getDatas()
@@ -23,9 +25,6 @@ $result = $curl
 	->getResult()
 ;
 */
-
-// Az összes adat mehet privátba, a cURL::attr ne legyen elérhetõ kintrõl
-// Ezt a cuccot megcsináltam már? vagy ezt mire értettem?
 
 class cURL extends Object{
 	const

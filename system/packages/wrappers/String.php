@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * A wrapper object for strings, which comes with a lot of functionality
+ * 
+ * @package wrappers
+ */
 class String extends Wrapper{
 	const
 		LEFT	= 0,
